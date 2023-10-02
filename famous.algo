@@ -1,0 +1,32 @@
+ALGORITHM algorithm_insert
+VAR
+     arr: array[1..10] of integer; // Change the size as needed
+  i, j, temp: integer;
+BEGIN
+      // Fill the array with the numbers to be sorted
+  writeln('Enter the numbers to be sorted:');
+  for i := 1 to 10 do
+    readln(arr[i]);
+
+  // Start the Insertion Sort algorithm
+  for i := 2 to 10 do
+  begin
+    temp := arr[i];
+    j := i - 1;
+
+    // Compare the current element with elements in the sorted region
+    while (j > 0) and (temp < arr[j]) do
+    begin
+      arr[j + 1] := arr[j];
+      j := j - 1;
+    end;
+
+    // Insert the current element in the correct position
+    arr[j + 1] := temp;
+  end;
+
+  // Print the array after sorting
+  writeln('Array after sorting:');
+  for i := 1 to 10 do
+    writeln(arr[i]);
+END
